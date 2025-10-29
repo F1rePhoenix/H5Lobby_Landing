@@ -1,0 +1,41 @@
+:root {
+  /* Основные цвета */
+  --color-bg-dark: #0a0a0f;
+  --color-bg-header: #1a1a2e;
+  --color-primary: #16213e;
+  --color-accent: #0f3460;
+  --color-gold: #F1BF11;
+  --color-gold-light: #daa520;
+  --color-text: #e8e6e3;
+  --color-text-muted: #a0a0a0;
+  
+  /* Цвета для баннера */
+  --color-button-bg: #322A21; /* Красный как в HoMM 5 */
+  --color-button-hover: #daa520d6;
+  --color-button-glow: rgba(139, 0, 0, 0.5);
+  --color-text-stroke: #000000; /* Цвет обводки текста */
+  
+  /* Шрифты */
+  --font-primary: 'Monotype Corsiva', 'Times New Roman', serif;
+  --font-accent: 'Monotype Corsiva', 'Times New Roman', serif;
+  
+  /* Отступы */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Тени и эффекты */
+  --shadow-glow: 0 0 10px rgba(218, 165, 32, 0.3);
+  --shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.7);
+  --shadow-text: 2px 2px 4px rgba(0, 0, 0, 0.8);
+
+  /* Цвета для Welcome блока */
+  --color-welcome-bg: #0f1419;
+  --color-welcome-accent: #1e2a3a;
+  
+  /* Границы и разделители */
+  --border-gold: 2px solid var(--color-gold);
+  --border-glow: 0 0 15px rgba(218, 165, 32, 0.3);
+}

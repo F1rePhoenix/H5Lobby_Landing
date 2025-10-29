@@ -1,0 +1,159 @@
+.welcomeSection {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url('../../assets/images/fon.png');
+  background-size: cover;
+  background-attachment: fixed; /* фон фиксируется */
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 15, 1) 0%,         
+    rgba(10, 10, 15, 0.6) 20%,       
+    rgba(10, 10, 15, 0.6) 50%,         
+    rgba(10, 10, 15, 0.6) 80%,       
+    rgba(10, 10, 15, 1) 100%      
+  );
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px; /* Увеличиваем максимальную ширину */
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+/* Левая колонка - видео */
+.videoColumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.videoWrapper {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 
+    0 0 20px rgba(218, 165, 32, 0.4),
+    0 0 35px rgba(218, 165, 32, 0.2),
+    inset 0 0 15px rgba(218, 165, 32, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.videoWrapper:hover {
+  opacity: 1;
+  box-shadow: 
+    0 0 30px rgba(218, 165, 32, 0.6),
+    0 0 50px rgba(218, 165, 32, 0.3),
+    0 0 75px rgba(218, 165, 32, 0.1),
+    inset 0 0 20px rgba(218, 165, 32, 0.2);
+}
+
+.youtubeVideo {
+  display: block;
+  width: 100%;
+  max-height: 700px;
+  height: 60vh;
+  border-radius: 6px;
+  border: none;
+  background: var(--color-bg-dark);
+  transform: scale(1.02);
+}
+
+/* Правая колонка - текст */
+.textColumn {
+  text-align: left;
+  padding: 0 var(--spacing-md);
+}
+
+.title {
+  font-family: var(--font-accent);
+  font-size: 3rem;
+  color: var(--color-gold);
+  margin-bottom: var(--spacing-md);
+  text-shadow: var(--shadow-text);
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.text {
+  color: var(--color-text);
+  font-size: 1.7rem; 
+  line-height: 1.4; 
+  text-shadow: var(--shadow-text);
+  margin: 0;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Убираем все лишние отступы */
+.welcomeSection {
+  padding: 0;
+}
+
+.container {
+  padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+/* Адаптивность */
+@media (max-width: 968px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    text-align: center;
+  }
+  
+  .videoWrapper {
+    max-width: 500px;
+  }
+  
+  .youtubeVideo {
+    height: 300px;
+  }
+  
+  .title {
+    font-size: 2.2rem;
+  }
+  
+  .text {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .youtubeVideo {
+    height: 250px;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .text {
+    font-size: 1.1rem;
+  }
+}

@@ -1,0 +1,75 @@
+@font-face {
+  font-family: 'Monotype Corsiva';
+  src: url('../assets/fonts/Monotype-Corsiva-Bold-Italic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Monotype Corsiva';
+  src: url('../assets/fonts/Monotype Corsiva.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center; /* Или initial */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* Сброс стилей для ссылок */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Стили для скролла */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-light);
+}
+
+/* Глобальные стили для select элементов */
+select {
+  background-color: var(--color-bg-header);
+  color: var(--color-text);
+  border: 1px solid var(--color-gold);
+}
+
+select option {
+  background: var(--color-bg-header);
+  color: var(--color-text);
+  padding: 10px;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(218, 165, 32, 0.3);
+}
