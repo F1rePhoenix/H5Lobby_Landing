@@ -1,0 +1,171 @@
+.modsSection {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  background: #000000; 
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2% 10%;
+}
+
+.title {
+  font-family: var(--font-accent);
+  font-size: 3rem;
+  color: var(--color-gold);
+  text-align: center;
+
+  text-shadow: var(--shadow-text);
+}
+
+/* Контейнер табов - делаем узким */
+.tabsContainer {
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(0.25rem, 1vw, 0.75rem);
+  padding: 0;
+}
+
+/* Стили кнопок табов - минималистичные */
+.tab {
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  color: var(--color-text);
+  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2vw, 1.5rem);
+  font-family: var(--font-accent);
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+.tab:hover {
+  color: var(--color-gold);
+  background: rgba(218, 165, 32, 0.1);
+}
+
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--color-gold);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.tab:hover::after {
+  width: 80%;
+}
+
+.tab.active {
+  color: var(--color-gold);
+  background: rgba(218, 165, 32, 0.1);
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 80%;
+  height: 2px;
+  background: var(--color-gold);
+  transform: translateX(-50%);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80%;
+  }
+}
+
+/* Контент табов - слитный переход */
+.tabContent {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.tabPanel {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tabTitle {
+  font-family: var(--font-accent);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  color: var(--color-gold);
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  text-align: center;
+  text-shadow: var(--shadow-text);
+}
+
+.modContent {
+  color: var(--color-text);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.6;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .tabs {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .tab.active::after {
+    bottom: -1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabs {
+    gap: 0.5rem;
+  }
+  
+  .tab {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}

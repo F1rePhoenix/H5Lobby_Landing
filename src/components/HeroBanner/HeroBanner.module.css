@@ -55,13 +55,12 @@
 }
 
 .textContainer {
-  max-width: 1200px;
-  width: 100%;
+  width: 80%;
 }
 
 /* Стили для логотипа в баннере */
 .logoContainer {
-  margin-top: 8%;
+  margin-top: 4%;
   margin-bottom: 4%;
   display: flex;
   justify-content: center;
@@ -69,8 +68,7 @@
 }
 
 .bannerLogo {
-  max-width: 600px; /* Регулируй под размер логотипа */
-  width: 100%;
+  width: 60%;
   height: auto;
   filter: drop-shadow(0 0 20px rgba(218, 165, 32, 0.5));
   animation: logoGlow 3s ease-in-out infinite alternate;

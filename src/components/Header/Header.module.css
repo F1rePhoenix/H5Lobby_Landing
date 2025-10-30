@@ -6,32 +6,36 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: 1%, 2%;
   background-color: var(--color-bg-header);
   border-bottom: 2px solid var(--color-gold);
   box-shadow: var(--shadow-dark);
   z-index: 1000;
-  height: 70px;
+  height: 12vh;
   font-family: var(--font-accent);
 }
 
 .logo {
   flex-shrink: 0;
+  margin-left: 2%;
+  height: 100%;
 }
 
 .logoLink {
   display: flex;
+  height: 100%;
   align-items: center;
   transition: all 0.3s ease;
 }
 
 .logoLink:hover {
-  transform: scale(1.05); /* Легкое увеличение при hover */
+  transform: scale(1.01); /* Легкое увеличение при hover */
 }
 
 .logoImage {
-  height: 50px; /* Увеличим немного логотип */
-  width: auto;
+  height: 70%;
+  width: auto; 
+  object-fit: contain;
 }
 
 /* Убираем текстовую часть лого */
@@ -66,7 +70,7 @@
   transition: all 0.3s ease;
   position: relative;
   white-space: nowrap;
-  font-size: 1.3rem; /* Увеличили шрифт с 1.1rem */
+  font-size: 1.3rem;
   letter-spacing: 0.5px;
 }
 

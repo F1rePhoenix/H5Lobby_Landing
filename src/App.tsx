@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import HeroBanner from './components/HeroBanner/HeroBanner';
 import WelcomeSection from './components/WelcomeSection/WelcomeSection';
 import Features from './components/Features/Features';
+import ModsSection from './components/ModsSection/ModsSection';
 import './styles/variables.css';
 import './styles/globals.css';
 
@@ -15,6 +16,7 @@ function App() {
       <HeroBanner language={language} />
       <WelcomeSection language={language} />
       <Features language={language} />
+      <ModsSection language={language} />
       
       {/* Остальные блоки будут здесь */}
       <main style={{ minHeight: '100vh', background: 'var(--color-bg-dark)' }}>
