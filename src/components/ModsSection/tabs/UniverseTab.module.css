@@ -1,0 +1,163 @@
+.universeTab {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Макет для контента мода */
+.modLayout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+/* Колонка с артом - убираем рамку */
+.artColumn {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.artContainer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.artContainer:hover {
+  transform: translateY(-5px);
+  filter: brightness(1.1) contrast(1.05);
+}
+
+.creatureArt {
+  width: 100%;
+  height: auto;
+}
+
+/* Колонка с особенностями */
+.featuresColumn {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modDescription {
+  color: var(--color-text);
+  font-size: 1.7rem;
+  line-height: 1.6;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  text-align: left;
+  font-style: italic;
+  opacity: 1;
+}
+
+.featuresList {
+  text-align: left;
+}
+
+.featuresTitle {
+  font-family: var(--font-accent);
+  font-size: 2rem;
+  color: var(--color-gold);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  text-shadow: var(--shadow-text);
+}
+
+/* Стили для списка особенностей */
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featureItem {
+  color: var(--color-text);
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+  padding-left: 2.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.featureItem:hover {
+  color: var(--color-gold-light);
+  transform: translateX(5px);
+}
+
+/* Кастомные маркеры для списка */
+.featureItem::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  color: var(--color-gold);
+  font-size: 1.3em;
+  text-shadow: 0 0 10px rgba(218, 165, 32, 0.8);
+  transition: all 0.3s ease;
+}
+
+.featureItem:hover::before {
+  transform: scale(1.2) rotate(15deg);
+  text-shadow: 0 0 15px rgba(218, 165, 32, 1);
+}
+
+/* Адаптивность */
+@media (max-width: 968px) {
+  .modLayout {
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+  }
+  
+  .modDescription,
+  .featuresList {
+    text-align: center;
+  }
+  
+  .artContainer {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .featuresColumn {
+    order: -1; /* Особенности выше арта на мобильных */
+  }
+}
+
+@media (max-width: 768px) {
+  .modDescription {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  }
+  
+  .featuresTitle {
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  }
+  
+  .featureItem {
+    font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+    padding-left: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .featureItem {
+    padding-left: 1.8rem;
+    font-size: 0.95rem;
+  }
+  
+  .featureItem::before {
+    font-size: 1.1em;
+  }
+}

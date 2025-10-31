@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import styles from './ModsSection.module.css';
-
-// Правильные импорты с фигурными скобками
 import { UniverseTab } from './tabs/UniverseTab';
 import { RTATab } from './tabs/RTATab';
 import { Heroes55Tab } from './tabs/Heroes55Tab';
@@ -23,6 +21,23 @@ const ModsSection: React.FC<ModsSectionProps> = ({ language }) => {
     { id: 'other' as ModTab, label: { ru: 'Другие моды', en: 'Other Mods' } }
   ];
 
+  // Фоны для каждого мода
+  const getBackgroundStyle = () => {
+    const backgrounds = {
+      universe: 'url(/src/assets/images/Mods/universe-bg.png)',
+      rta: 'url(/assets/images/mods/rta-bg.jpg)',
+      heroes55: 'url(/assets/images/mods/heroes55-bg.jpg)',
+      other: 'url(/assets/images/mods/other-bg.jpg)'
+    };
+    
+    return {
+      backgroundImage: backgrounds[activeTab],
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    };
+  };
+
   const renderTabContent = () => {
     switch (activeTab) {
       case 'universe':
@@ -38,36 +53,39 @@ const ModsSection: React.FC<ModsSectionProps> = ({ language }) => {
     }
   };
 
-return (
-  <section className={styles.modsSection} id="mods">
-    {/* Убираем overlay */}
-    <div className={styles.container}>
-      <h2 className={styles.title}>
-        {language === 'ru' ? 'Все моды в одном месте' : 'All Mods in One Place'}
-      </h2>
+  return (
+    <section 
+      className={styles.modsSection} 
+      id="mods"
+      style={getBackgroundStyle()}
+    >
+      <div className={styles.overlay}></div>
       
-      {/* Табы */}
-      <div className={styles.tabsContainer}>
-        <div className={styles.tabs}>
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              className={`${styles.tab} ${activeTab === tab.id ? styles.active : ''}`}
-              onClick={() => setActiveTab(tab.id)}
-            >
-              {tab.label[language]}
-            </button>
-          ))}
+      <div className={styles.container}>
+        <h2 className={styles.title}>
+          {language === 'ru' ? 'Все моды в одном месте' : 'All Mods in One Place'}
+        </h2>
+        
+        <div className={styles.tabsContainer}>
+          <div className={styles.tabs}>
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                className={`${styles.tab} ${activeTab === tab.id ? styles.active : ''}`}
+                onClick={() => setActiveTab(tab.id)}
+              >
+                {tab.label[language]}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.tabContent}>
+          {renderTabContent()}
         </div>
       </div>
-
-      {/* Контент таба */}
-      <div className={styles.tabContent}>
-        {renderTabContent()}
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
 };
 
 export default ModsSection;
