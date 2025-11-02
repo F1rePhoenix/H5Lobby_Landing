@@ -4,6 +4,10 @@ import { UniverseTab } from './tabs/UniverseTab';
 import { RTATab } from './tabs/RTATab';
 import { Heroes55Tab } from './tabs/Heroes55Tab';
 import { OtherModsTab } from './tabs/OtherModsTab';
+import universeBg from '../../assets/images/mods/universe-bg.png';
+import rtaBg from '../../assets/images/mods/rta-bg.png';
+import heroes55Bg from '../../assets/images/mods/heroes-bg.png';
+import otherBg from '../../assets/images/mods/other-bg.png';
 
 interface ModsSectionProps {
   language: 'ru' | 'en';
@@ -21,17 +25,17 @@ const ModsSection: React.FC<ModsSectionProps> = ({ language }) => {
     { id: 'other' as ModTab, label: { ru: 'Другие моды', en: 'Other Mods' } }
   ];
 
-  // Фоны для каждого мода
+  // Фоны для каждого мода через импорты
   const getBackgroundStyle = () => {
     const backgrounds = {
-      universe: 'url(/src/assets/images/Mods/universe-bg.png)',
-      rta: 'url(/assets/images/mods/rta-bg.jpg)',
-      heroes55: 'url(/assets/images/mods/heroes55-bg.jpg)',
-      other: 'url(/assets/images/mods/other-bg.jpg)'
+      universe: universeBg,
+      rta: rtaBg,
+      heroes55: heroes55Bg,
+      other: otherBg
     };
     
     return {
-      backgroundImage: backgrounds[activeTab],
+      backgroundImage: `url(${backgrounds[activeTab]})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'

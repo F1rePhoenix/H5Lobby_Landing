@@ -1,5 +1,4 @@
-/* Существующие стили остаются без изменений */
-.universeTab {
+.rtaTab {
   animation: fadeIn 0.3s ease;
 }
 
@@ -108,7 +107,7 @@
   text-shadow: 0 0 15px rgba(218, 165, 32, 1);
 }
 
-/* НОВЫЕ СТИЛИ - блок с призывом к скачиванию */
+/* Блок с призывом к скачиванию */
 .downloadSection {
   margin-top: clamp(3rem, 6vw, 5rem);
   padding: clamp(2rem, 4vw, 3rem);

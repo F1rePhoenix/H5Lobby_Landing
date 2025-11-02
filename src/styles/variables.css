@@ -10,7 +10,7 @@
   --color-text-muted: #a0a0a0;
   
   /* Цвета для баннера */
-  --color-button-bg: #322A21; /* Красный как в HoMM 5 */
+  --color-button-bg: #0a0a0f; /* Красный как в HoMM 5 */
   --color-button-hover: #daa520d6;
   --color-button-glow: rgba(139, 0, 0, 0.5);
   --color-text-stroke: #000000; /* Цвет обводки текста */

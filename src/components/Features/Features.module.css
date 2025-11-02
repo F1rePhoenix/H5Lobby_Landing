@@ -44,7 +44,6 @@
   margin-bottom: 0;
 }
 
-/* Чередование колонок */
 .featureItem.reverse {
   direction: rtl;
 }
@@ -53,7 +52,6 @@
   direction: ltr;
 }
 
-/* Колонка с изображением */
 .imageColumn {
   display: flex;
   justify-content: center;

@@ -6,6 +6,8 @@ import Features from './components/Features/Features';
 import ModsSection from './components/ModsSection/ModsSection';
 import './styles/variables.css';
 import './styles/globals.css';
+import TeamSection from './components/TeamSection/TeamSection';
+import DownloadBanner from './components/DownloadBanner/DownloadBanner';
 
 function App() {
   const [language, setLanguage] = useState<'ru' | 'en'>('ru');
@@ -17,6 +19,9 @@ function App() {
       <WelcomeSection language={language} />
       <Features language={language} />
       <ModsSection language={language} />
+      <TeamSection language={language}/>
+      <DownloadBanner language={language}/>
+
       
       {/* Остальные блоки будут здесь */}
       <main style={{ minHeight: '100vh', background: 'var(--color-bg-dark)' }}>

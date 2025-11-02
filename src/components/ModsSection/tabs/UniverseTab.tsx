@@ -9,11 +9,12 @@ interface TabProps {
 export const UniverseTab: React.FC<TabProps> = ({ language }) => {
   const features = {
     ru: [
-      "Улучшение сетевого кода",
-      "Хоткеи для быстрой передачи армии и артефактов",
-      "Улучшение баланса оригинальной игры", 
-      "Собственный генератор карт",
-      "Переработка старых механик и добавление новых"
+      "Оптимизация игры и улучшение сетевого кода",
+      "Горячие клавиши для быстрой передачи армии и артефактов",
+      "Разработка уникальных инструментов для настройки ГСК и шаблонов к нему", 
+      "Доработка и усовершенствование ГСК",
+      "Оптимизация оригинальных игровых механик и внедрение новых",
+      "Улучшения интерфейса и работа над QOL изменениями"
     ],
     en: [
       "Improved network code",
@@ -25,9 +26,10 @@ export const UniverseTab: React.FC<TabProps> = ({ language }) => {
   };
 
   const description = {
-    ru: "Ощутите игру по-новому с модом Universe, который улучшает механики игры, при этом сохраняя основную концепцию и шарм оригинала.",
+    ru: "Ощутите игру по-новому с модом Universe, улучшающим механики игры, при этом сохраняя основную концепцию и шарм оригинала.",
     en: "Experience the game in a new way with the Universe mod, which improves game mechanics while preserving the core concept and charm of the original."
   };
+
 
   return (
     <div className={styles.universeTab}>
@@ -36,7 +38,7 @@ export const UniverseTab: React.FC<TabProps> = ({ language }) => {
         <div className={styles.artColumn}>
           <div className={styles.artContainer}>
             <img 
-              src={art}
+              src={art} 
               alt={language === 'ru' ? 'Существо Universe' : 'Universe Creature'}
               className={styles.creatureArt}
               onError={(e) => {
@@ -65,6 +67,19 @@ export const UniverseTab: React.FC<TabProps> = ({ language }) => {
             </ul>
           </div>
         </div>
+      </div>
+
+      <div className={styles.downloadSection}>
+        <p className={styles.downloadText}>
+          {language === 'ru' 
+            ? 'Присоединяйтесь к самому технологичному и популярному моду в HoMM 5 на базе которого было сыграно уже более ' 
+            : 'Join the most technological and popular mod in HoMM 5 on which over '}
+          <span className={styles.highlight}>70,000</span>
+          {language === 'ru' ? ' рейтинговых игр!' : ' rated games have already been played!'}
+        </p>
+        <button className={styles.downloadButton}>
+          {language === 'ru' ? 'СКАЧАТЬ' : 'DOWNLOAD'}
+        </button>
       </div>
     </div>
   );
