@@ -3,17 +3,15 @@ import styles from './ModsSection.module.css';
 import { UniverseTab } from './tabs/UniverseTab';
 import { RTATab } from './tabs/RTATab';
 import { Heroes55Tab } from './tabs/Heroes55Tab';
-import { OtherModsTab } from './tabs/OtherModsTab';
 import universeBg from '../../assets/images/mods/universe-bg.png';
 import rtaBg from '../../assets/images/mods/rta-bg.png';
 import heroes55Bg from '../../assets/images/mods/heroes-bg.png';
-import otherBg from '../../assets/images/mods/other-bg.png';
 
 interface ModsSectionProps {
   language: 'ru' | 'en';
 }
 
-type ModTab = 'universe' | 'rta' | 'heroes55' | 'other';
+type ModTab = 'universe' | 'rta' | 'heroes55';
 
 const ModsSection: React.FC<ModsSectionProps> = ({ language }) => {
   const [activeTab, setActiveTab] = useState<ModTab>('universe');
@@ -22,7 +20,6 @@ const ModsSection: React.FC<ModsSectionProps> = ({ language }) => {
     { id: 'universe' as ModTab, label: { ru: 'Universe', en: 'Universe' } },
     { id: 'rta' as ModTab, label: { ru: 'RTA', en: 'RTA' } },
     { id: 'heroes55' as ModTab, label: { ru: 'Heroes 5.5', en: 'Heroes 5.5' } },
-    { id: 'other' as ModTab, label: { ru: 'Другие моды', en: 'Other Mods' } }
   ];
 
   // Фоны для каждого мода через импорты
@@ -31,7 +28,6 @@ const ModsSection: React.FC<ModsSectionProps> = ({ language }) => {
       universe: universeBg,
       rta: rtaBg,
       heroes55: heroes55Bg,
-      other: otherBg
     };
     
     return {
@@ -50,8 +46,6 @@ const ModsSection: React.FC<ModsSectionProps> = ({ language }) => {
         return <RTATab language={language} />;
       case 'heroes55':
         return <Heroes55Tab language={language} />;
-      case 'other':
-        return <OtherModsTab language={language} />;
       default:
         return <UniverseTab language={language} />;
     }

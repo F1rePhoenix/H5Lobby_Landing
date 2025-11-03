@@ -8,6 +8,8 @@ import './styles/variables.css';
 import './styles/globals.css';
 import TeamSection from './components/TeamSection/TeamSection';
 import DownloadBanner from './components/DownloadBanner/DownloadBanner';
+import FAQSection from './components/FAQSection/FAQSection';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [language, setLanguage] = useState<'ru' | 'en'>('ru');
@@ -21,12 +23,8 @@ function App() {
       <ModsSection language={language} />
       <TeamSection language={language}/>
       <DownloadBanner language={language}/>
-
-      
-      {/* Остальные блоки будут здесь */}
-      <main style={{ minHeight: '100vh', background: 'var(--color-bg-dark)' }}>
-        {/* Team, FAQ, FinalCTA и т.д. */}
-      </main>
+      <FAQSection language={language}/>
+      <Footer language={language}/>
     </div>
   );
 }
