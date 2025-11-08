@@ -1,7 +1,6 @@
 .heroBanner {
   position: relative;
   height: 100vh;
-  min-height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,7 +86,7 @@
 
 .subtitle {
   font-family: var(--font-accent);
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: var(--spacing-lg);
   color: var(--color-gold);
   text-shadow: 
@@ -106,7 +105,7 @@
   color: var(--color-text);
   border: 2px solid var(--color-gold);
   padding: var(--spacing-md) var(--spacing-lg);
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: bolder;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -182,30 +181,16 @@
 
 /* Адаптивность */
 @media (max-width: 768px) {
-  .bannerLogo {
-    max-width: 400px;
-  }
-  
-  .subtitle {
-    font-size: 1.5rem;
-  }
-  
-  .downloadButton {
-    font-size: 1.2rem;
-    padding: var(--spacing-sm) var(--spacing-lg);
-  }
-  
   .content {
     padding: 0 var(--spacing-md);
   }
+  .bannerLogo {
+  width: 70%;
+}
 }
 
 @media (max-width: 480px) {
   .bannerLogo {
-    max-width: 300px;
-  }
-  
-  .subtitle {
-    font-size: 1.2rem;
-  }
+  width: 100%;
+}
 }

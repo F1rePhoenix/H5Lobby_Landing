@@ -3,7 +3,7 @@ import styles from './Features.module.css';
 import ranking from '../../assets/images/features/reiting.png'
 import statistics from '../../assets/images/features/statistics.png'
 import template from '../../assets/images/features/templateEditor.png'
-import update from '../../assets/images/features/autoUpdate.png'
+import update from '../../assets/images/features/load.png'
 
 interface FeaturesProps {
   language: 'ru' | 'en';
@@ -14,7 +14,7 @@ const Features: React.FC<FeaturesProps> = ({ language }) => {
     {
       id: 1,
       title: {
-        ru: "Встроенный VPN",
+        ru: "Встроенный сетевой модуль",
         en: "Built-in VPN"
       },
       description: {

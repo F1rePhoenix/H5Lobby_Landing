@@ -1,5 +1,4 @@
-/* Существующие стили остаются без изменений */
-.universeTab {
+.heroes55Tab {
   animation: fadeIn 0.3s ease;
 }
 
@@ -108,7 +107,7 @@
   text-shadow: 0 0 15px rgba(218, 165, 32, 1);
 }
 
-/* НОВЫЕ СТИЛИ - блок с призывом к скачиванию */
+/* Блок с призывом к скачиванию */
 .downloadSection {
   margin-top: clamp(3rem, 6vw, 5rem);
   padding: clamp(2rem, 4vw, 3rem);
@@ -157,7 +156,7 @@
 
 .downloadButton:hover {
   background: var(--color-button-hover);
-  transform: scale(1.05);
+  transform: scale(1.08);
   box-shadow: 
     0 0 40px var(--color-button-glow),
     0 0 60px rgba(139, 0, 0, 0.4),
@@ -184,10 +183,10 @@
   .featuresColumn {
     order: -1;
   }
-  
 }
 
 @media (max-width: 768px) {
+  
   .downloadButton {
     padding: 0.8rem 2rem;
   }

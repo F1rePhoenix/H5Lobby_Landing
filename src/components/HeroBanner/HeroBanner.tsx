@@ -2,7 +2,7 @@ import React, {} from 'react';
 import styles from './HeroBanner.module.css';
 
 // Импортируем логотип
-import lobbyLogo from '../../assets/images/Logo.png';
+import lobbyLogoBanner from '../../assets/images/LogoForBanner.png';
 import heroBanner from '../../assets/videos/hero-banner1280.mp4'
 
 interface HeroBannerProps {
@@ -45,7 +45,7 @@ const HeroBanner: React.FC<HeroBannerProps> = ({ language }) => {
           {/* Заменяем текстовый заголовок на логотип */}
           <div className={styles.logoContainer}>
             <img 
-              src={lobbyLogo} 
+              src={lobbyLogoBanner} 
               alt="Heroes V Lobby" 
               className={styles.bannerLogo}
             />

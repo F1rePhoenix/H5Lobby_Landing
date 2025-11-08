@@ -33,7 +33,6 @@
   text-shadow: var(--shadow-text);
 }
 
-/* Контейнер табов - делаем узким */
 .tabsContainer {
   margin-bottom: clamp(1rem, 2vw, 2rem);
 }
@@ -46,7 +45,6 @@
   padding: 0;
 }
 
-/* Стили кнопок табов - минималистичные */
 .tab {
   background: transparent;
   border: none;
@@ -54,7 +52,7 @@
   color: var(--color-text);
   padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2vw, 1.5rem);
   font-family: var(--font-accent);
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   letter-spacing: 0.5px;
   border-radius: 4px;
   cursor: pointer;
@@ -153,7 +151,6 @@
   
   .tab {
     padding: 0.5rem 1rem;
-    font-size: 0.9rem;
   }
   
   .tab.active::after {
@@ -168,6 +165,5 @@
   
   .tab {
     padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
   }
 }

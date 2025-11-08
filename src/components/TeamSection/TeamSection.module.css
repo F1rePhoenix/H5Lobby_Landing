@@ -50,6 +50,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 0% 5%;
 }
 
 .title {
@@ -57,145 +59,102 @@
   font-size: 3rem;
   color: var(--color-gold);
   text-align: center;
-  margin-top: 2%;
+  margin-bottom: 3%;
   position: relative;
-  z-index: 4;
 }
 
-.chessLayout {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.row {
+.teamRow {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
-  height: 40%;
+  height: 60%;
+  gap: 2%;
 }
 
 .memberItem {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100%;
-  width: auto;
-}
-
-/* Позиционирование для первой строки */
-.leftPosition {
-  margin-left: 5%;
-}
-
-.rightPosition {
-  margin-right: 5%;
-}
-
-/* Позиционирование для второй строки */
-.centerLeftPosition {
-  margin-left: 25%;
-}
-
-.centerRightPosition {
-  margin-right: 25%;
+  flex: 1;
+  max-width: 16%;
 }
 
 .imageFrame {
-  height: 100%;
+  width: 100%;
   aspect-ratio: 3/4;
   border: 2px solid var(--color-gold);
   background: var(--color-bg-dark);
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  position: relative;
   border-radius: 8px;
+  margin-bottom: 3%;
 }
 
 .memberImage {
   width: 100%;
-  height: 85%;
+  height: 100%;
   object-fit: cover;
 }
 
-.nameOverlay {
-  height: 15%;
-  background:var(--color-bg-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top: 1px solid var(--color-gold);
+.memberInfo {
+  text-align: center;
+  width: 100%;
+}
+
+.memberName {
   font-family: var(--font-accent);
   font-size: 2rem;
   color: var(--color-gold);
-  text-align: center;
+}
+
+.memberRole {
+  font-size: 1.7rem;
+  color: var(--color-text);
+  line-height: 1.3;
 }
 
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
   .teamSection {
     height: auto;
-    min-height: 100vh;
   }
   
   .content {
     height: auto;
-    min-height: 100vh;
-    padding: 15% 0;
+    padding: 5% 5%;
   }
   
-  .chessLayout {
-    position: relative;
-    height: auto;
-    gap: var(--spacing-xl);
-    padding: 0;
-  }
-  
-  .row {
+  .teamRow {
     flex-direction: column;
-    gap: var(--spacing-lg);
     height: auto;
+    gap: 3%;
+    align-items: center;
   }
   
-  .leftPosition,
-  .rightPosition,
-  .centerLeftPosition,
-  .centerRightPosition {
-    margin: 0;
+  .memberItem {
+    max-width: 80%;
+    margin-bottom: 8%;
   }
   
   .imageFrame {
-    width: 60vw;
-    height: 50vh;
-    max-width: 300px;
-    max-height: 400px;
+    width: 60%;
+    margin-bottom: 2%;
   }
   
   .title {
-    font-size: 2.5rem;
-    margin-top: 5%;
     margin-bottom: 5%;
   }
 }
 
 @media (max-width: 480px) {
+  .memberItem {
+    max-width: 90%;
+  }
+  
   .imageFrame {
-    width: 70vw;
-    height: 45vh;
-  }
-  
-  .title {
-    font-size: 2rem;
-  }
-  
-  .chessLayout {
-    gap: var(--spacing-lg);
+    width: 70%;
   }
 }

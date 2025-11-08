@@ -1,6 +1,5 @@
 .faqSection {
   width: 100%;
-  min-height: 100vh;
   background-color: var(--color-bg-dark);
   padding: var(--spacing-xl) var(--spacing-md);
   position: relative;
@@ -173,13 +172,5 @@
   
   .answerContent {
     padding: var(--spacing-sm) var(--spacing-md);
-  }
-  
-  .questionText {
-    font-size: 1rem;
-  }
-  
-  .answerText {
-    font-size: 0.9rem;
   }
 }

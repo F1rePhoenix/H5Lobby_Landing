@@ -16,7 +16,7 @@
   --color-text-stroke: #000000; /* Цвет обводки текста */
   
   /* Шрифты */
-  font-size: 1vw;
+    font-size: clamp(10px, 1vw, 16px);
   --font-primary: 'Monotype Corsiva', 'Times New Roman', serif;
   --font-accent: 'Monotype Corsiva', 'Times New Roman', serif;
   

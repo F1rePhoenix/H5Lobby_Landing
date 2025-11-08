@@ -129,26 +129,10 @@
   .content {
     padding: var(--spacing-lg);
   }
-  
-  .title {
-    margin-bottom: var(--spacing-lg);
+  .title{
+    margin-bottom: 30vh;
   }
-  
-  .surpriseArt {
-    width: 150px;
-  }
-  
   .downloadButton {
     padding: var(--spacing-sm) var(--spacing-lg);
-  }
-}
-
-@media (max-width: 480px) {
-  .surpriseArt {
-    width: 120px;
-  }
-  
-  .title {
-    font-size: clamp(1.2rem, 4vw, 1.8rem);
   }
 }

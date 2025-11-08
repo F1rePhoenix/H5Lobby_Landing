@@ -78,7 +78,7 @@
 
 .featureItem {
   color: var(--color-text);
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   line-height: 1.6;
   margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
   padding-left: 2.5rem;
@@ -138,7 +138,7 @@
   color: var(--color-text);
   border: 2px solid var(--color-gold);
   padding: var(--spacing-md) var(--spacing-lg);
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: bolder;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -177,53 +177,22 @@
   }
   
   .artContainer {
-    max-width: 350px;
     margin: 0 auto;
   }
   
   .featuresColumn {
     order: -1;
   }
-  
-  .downloadText {
-    font-size: 1.4rem;
-  }
 }
 
 @media (max-width: 768px) {
-  .modDescription {
-    font-size: 1.4rem;
-  }
-  
-  .featuresTitle {
-    font-size: 1.6rem;
-  }
-  
-  .featureItem {
-    font-size: 1.2rem;
-  }
-  
-  .downloadText {
-    font-size: 1.2rem;
-  }
-  
   .downloadButton {
     padding: 0.8rem 2rem;
-    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .featureItem {
-    font-size: 1rem;
-  }
-  
-  .downloadText {
-    font-size: 1rem;
-  }
-  
   .downloadButton {
-    width: 100%;
-    max-width: 250px;
+    width: 80%;
   }
 }

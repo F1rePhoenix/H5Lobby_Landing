@@ -1,20 +1,22 @@
 import React from 'react';
 import styles from './TeamSection.module.css';
-import tgame from '../../assets/images/Team/Vadim.png';
 import madiar from '../../assets/images/Team/Madiar.png';
+import tgame from '../../assets/images/Team/Vadim.png';
 import lollyasha from '../../assets/images/Team/Lolikefir.png';
 import fline from '../../assets/images/Team/fline.png';
+import pegn0ly from '../../assets/images/Team/pegn0ly.jpg';
 
 interface TeamSectionProps {
   language: 'ru' | 'en';
 }
 
 interface TeamMember {
-  name: {
+  name: string;
+  role: {
     ru: string;
     en: string;
   };
-  image: string;
+  image: any;
 }
 
 const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
@@ -27,32 +29,44 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
 
   const teamMembers: TeamMember[] = [
     {
-      name: {
-        ru: "Tgame",
-        en: "Tgame"
-      },
-      image: tgame
-    },
-    {
-      name: {
-        ru: "Madiar", 
-        en: "Madiar"
+      name: "Madiar",
+      role: {
+        ru: "Главный разработчик и архитектор",
+        en: "Lead Developer and Architect"
       },
       image: madiar
     },
     {
-      name: {
-        ru: "Lollyasha",
-        en: "Lollyasha"
+      name: "TGame", 
+      role: {
+        ru: "Комьюнити-менеджер",
+        en: "Community Manager"
+      },
+      image: tgame
+    },
+    {
+      name: "Lollyasha",
+      role: {
+        ru: "Дизайнер и UI разработчик",
+        en: "Designer and UI Developer"
       },
       image: lollyasha
     },
     {
-      name: {
-        ru: "fline",
-        en: "fline"
+      name: "Fline",
+      role: {
+        ru: "DevOps-инженер",
+        en: "DevOps Engineer"
       },
       image: fline
+    },
+    {
+      name: "Pegn0ly",
+      role: {
+        ru: "Разработчик лобби и Lua-скриптов",
+        en: "Lobby and Lua Scripts Developer"
+      },
+      image: pegn0ly
     }
   ];
 
@@ -64,64 +78,22 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
         <div className={styles.content}>
           <h2 className={styles.title}>{content.title[language]}</h2>
           
-          <div className={styles.chessLayout}>
-            {/* Первая строка - рамки по краям */}
-            <div className={styles.row}>
-              <div className={`${styles.memberItem} ${styles.leftPosition}`}>
+          <div className={styles.teamRow}>
+            {teamMembers.map((member, index) => (
+              <div key={index} className={styles.memberItem}>
                 <div className={styles.imageFrame}>
                   <img 
-                    src={teamMembers[0].image} 
-                    alt={teamMembers[0].name[language]}
+                    src={member.image} 
+                    alt={member.name}
                     className={styles.memberImage}
                   />
-                  <div className={styles.nameOverlay}>
-                    {teamMembers[0].name[language]}
-                  </div>
+                </div>
+                <div className={styles.memberInfo}>
+                  <h3 className={styles.memberName}>{member.name}</h3>
+                  <p className={styles.memberRole}>{member.role[language]}</p>
                 </div>
               </div>
-              
-              <div className={`${styles.memberItem} ${styles.rightPosition}`}>
-                <div className={styles.imageFrame}>
-                  <img 
-                    src={teamMembers[1].image} 
-                    alt={teamMembers[1].name[language]}
-                    className={styles.memberImage}
-                  />
-                  <div className={styles.nameOverlay}>
-                    {teamMembers[1].name[language]}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Вторая строка - рамки ближе к центру */}
-            <div className={styles.row}>
-              <div className={`${styles.memberItem} ${styles.centerLeftPosition}`}>
-                <div className={styles.imageFrame}>
-                  <img 
-                    src={teamMembers[2].image} 
-                    alt={teamMembers[2].name[language]}
-                    className={styles.memberImage}
-                  />
-                  <div className={styles.nameOverlay}>
-                    {teamMembers[2].name[language]}
-                  </div>
-                </div>
-              </div>
-              
-              <div className={`${styles.memberItem} ${styles.centerRightPosition}`}>
-                <div className={styles.imageFrame}>
-                  <img 
-                    src={teamMembers[3].image} 
-                    alt={teamMembers[3].name[language]}
-                    className={styles.memberImage}
-                  />
-                  <div className={styles.nameOverlay}>
-                    {teamMembers[3].name[language]}
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Header.module.css';
 import logo from '../../assets/images/Logo.png'
 
@@ -7,17 +7,64 @@ interface HeaderProps {
   onLanguageChange?: (lang: 'ru' | 'en') => void;
 }
 
+interface NavItem {
+  id: string;
+  label: {
+    ru: string;
+    en: string;
+  };
+  href: string;
+  external?: boolean;
+}
+
 const Header: React.FC<HeaderProps> = ({ language, onLanguageChange }) => {
-  const navItems = [
-    { id: 'about', label: { ru: 'Подробнее о лобби', en: 'About Lobby' } },
-    { id: 'skills', label: { ru: 'Колесо умений', en: 'Skills Wheel' } },
-    { id: 'calculator', label: { ru: 'Калькулятор', en: 'Calculator' } },
-    { id: 'templates', label: { ru: 'Генератор шаблонов', en: 'Template Generator' } },
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navItems: NavItem[] = [
+    { 
+      id: 'features', 
+      label: { ru: 'Подробнее о лобби', en: 'About Lobby' },
+      href: '#features'
+    },
+    { 
+      id: 'skills', 
+      label: { ru: 'Колесо умений', en: 'Skills Wheel' },
+      href: 'https://h5lobby.com/wheel',
+      external: true
+    },
+    { 
+      id: 'calculator', 
+      label: { ru: 'Калькулятор', en: 'Calculator' },
+      href: 'https://f1rephoenix.github.io/HoMM5_calculator/',
+      external: true
+    },
+    { 
+      id: 'templates', 
+      label: { ru: 'Генератор шаблонов', en: 'Template Generator' },
+      href: 'https://f1rephoenix.github.io/H5Lobby-TemplateEditor/',
+      external: true
+    },
   ];
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleNavClick = (item: NavItem) => {
+    setIsMobileMenuOpen(false);
+    
+    // Для внутренних ссылок - плавная прокрутка
+    if (!item.external) {
+      const element = document.getElementById(item.href.replace('#', ''));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <header className={styles.header}>
-      {/* Логотип - только изображение */}
+      {/* Логотип */}
       <div className={styles.logo}>
         <a href="#top" className={styles.logoLink}>
           <img 
@@ -28,12 +75,25 @@ const Header: React.FC<HeaderProps> = ({ language, onLanguageChange }) => {
         </a>
       </div>
       
-      {/* Навигация */}
+      {/* Навигация для десктопа */}
       <nav className={styles.nav}>
         <ul className={styles.navList}>
           {navItems.map((item) => (
             <li key={item.id} className={styles.navItem}>
-              <a href={`#${item.id}`} className={styles.navLink}>
+              <a 
+                href={item.href}
+                className={styles.navLink}
+                onClick={(e) => {
+                  if (!item.external) {
+                    e.preventDefault();
+                    handleNavClick(item);
+                  }
+                }}
+                {...(item.external ? { 
+                  target: '_blank', 
+                  rel: 'noopener noreferrer' 
+                } : {})}
+              >
                 {item.label[language]}
               </a>
             </li>
@@ -41,21 +101,8 @@ const Header: React.FC<HeaderProps> = ({ language, onLanguageChange }) => {
         </ul>
       </nav>
 
-      {/* Правая часть с иконками */}
+      {/* Правая часть с контролами */}
       <div className={styles.controls}>
-        {/* Иконка Discord */}
-        <a 
-          href="https://discord.gg/h5lobby" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className={styles.iconLink}
-          title="Discord"
-        >
-          <svg className={styles.icon} width="24" height="24" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M19.27 5.33C17.94 4.71 16.5 4.26 15 4a.09.09 0 0 0-.07.03c-.18.33-.39.76-.53 1.09a16.09 16.09 0 0 0-4.8 0c-.14-.34-.35-.76-.54-1.09c-.01-.02-.04-.03-.07-.03c-1.5.26-2.93.71-4.27 1.33c-.01 0-.02.01-.03.02c-2.72 4.07-3.47 8.03-3.1 11.95c0 .02.01.04.03.05c1.8 1.32 3.53 2.12 5.24 2.65c.03.01.06 0 .07-.02c.4-.55.76-1.13 1.07-1.74c.02-.04 0-.08-.04-.09c-.57-.22-1.11-.48-1.64-.78c-.04-.02-.04-.08-.01-.11c.11-.08.22-.17.33-.25c.02-.02.05-.02.07-.01c3.44 1.57 7.15 1.57 10.55 0c.02-.01.05-.01.07.01c.11.09.22.17.33.26c.04.03.04.09-.01.11c-.52.31-1.07.56-1.64.78c-.04.01-.05.06-.04.09c.32.61.68 1.19 1.07 1.74c.03.01.06.02.09.01c1.72-.53 3.45-1.33 5.25-2.65c.02-.01.03-.03.03-.05c.44-4.53-.73-8.46-3.1-11.95c-.01-.01-.02-.02-.04-.02zM8.52 14.91c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12c0 1.17-.84 2.12-1.89 2.12zm6.97 0c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12c0 1.17-.83 2.12-1.89 2.12z"/>
-          </svg>
-        </a>
-
         {/* Переключатель языка */}
         <select 
           value={language} 
@@ -65,6 +112,45 @@ const Header: React.FC<HeaderProps> = ({ language, onLanguageChange }) => {
           <option value="ru">RU</option>
           <option value="en">EN</option>
         </select>
+
+        {/* Бургер-меню для мобильных */}
+        <button 
+          className={styles.burgerMenu}
+          onClick={toggleMobileMenu}
+          aria-label="Toggle menu"
+        >
+          <span className={styles.burgerLine}></span>
+          <span className={styles.burgerLine}></span>
+          <span className={styles.burgerLine}></span>
+        </button>
+      </div>
+
+      {/* Мобильное меню */}
+      <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
+        <nav className={styles.mobileNav}>
+          <ul className={styles.mobileNavList}>
+            {navItems.map((item) => (
+              <li key={item.id} className={styles.mobileNavItem}>
+                <a 
+                  href={item.href}
+                  className={styles.mobileNavLink}
+                  onClick={(e) => {
+                    if (!item.external) {
+                      e.preventDefault();
+                    }
+                    handleNavClick(item);
+                  }}
+                  {...(item.external ? { 
+                    target: '_blank', 
+                    rel: 'noopener noreferrer' 
+                  } : {})}
+                >
+                  {item.label[language]}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </header>
   );
