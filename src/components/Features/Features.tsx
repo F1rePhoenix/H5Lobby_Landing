@@ -1,9 +1,19 @@
 import React from 'react';
 import styles from './Features.module.css';
-import ranking from '../../assets/images/features/reiting.png'
-import statistics from '../../assets/images/features/statistics.png'
-import template from '../../assets/images/features/templateEditor.png'
-import update from '../../assets/images/features/load.png'
+
+// Импорты изображений для русского языка
+import vpnRu from '../../assets/images/features/vpnRus.png';
+import ratingRu from '../../assets/images/features/reiting.png';
+import statsRu from '../../assets/images/features/statistics.png';
+import updateRu from '../../assets/images/features/load.png';
+import generatorRu from '../../assets/images/features/template.png';
+
+// Импорты изображений для английского языка  
+import vpnEn from '../../assets/images/features/vpnEng.png';
+import ratingEn from '../../assets/images/features/rateEng.png';
+import statsEn from '../../assets/images/features/statEng.png';
+import updateEn from '../../assets/images/features/loadEng.png';
+import generatorEn from '../../assets/images/features/templateEng.png';
 
 interface FeaturesProps {
   language: 'ru' | 'en';
@@ -21,7 +31,10 @@ const Features: React.FC<FeaturesProps> = ({ language }) => {
         ru: "Стабильное соединение без задержек и головной боли. Играйте с кем угодно без скачивания сторонних приложений и танцев с бубном!",
         en: "Stable connection without delays. Play with opponents from around the world without connection issues. Our built-in VPN provides reliable protection and minimal ping."
       },
-      image: "/assets/images/features/vpn.jpg",
+      image: {
+        ru: vpnRu,
+        en: vpnEn
+      },
       reverse: false
     },
     {
@@ -34,7 +47,10 @@ const Features: React.FC<FeaturesProps> = ({ language }) => {
         ru: "Соревнуйтесь с лучшими игроками и поднимайтесь в рейтинговой таблице! Умная система подбора противников обеспечивает сбалансированные и интересные матчи.",
         en: "Compete with the best players and climb the leaderboard. Smart matchmaking system ensures balanced and exciting matches."
       },
-      image: ranking,
+      image: {
+        ru: ratingRu,
+        en: ratingEn
+      },
       reverse: true
     },
     {
@@ -47,7 +63,10 @@ const Features: React.FC<FeaturesProps> = ({ language }) => {
         ru: "Отслеживайте свой прогресс с подробной статистикой игр. Анализируйте победы и поражения, улучшайте тактику и становитесь лучше с каждой игрой.",
         en: "Track your progress with detailed game statistics. Analyze wins and losses, improve your tactics and get better with every game."
       },
-      image: statistics, 
+      image: {
+        ru: statsRu,
+        en: statsEn
+      },
       reverse: false
     },
     {
@@ -60,7 +79,10 @@ const Features: React.FC<FeaturesProps> = ({ language }) => {
         ru: "Всегда актуальная версия. Больше не нужно вручную проверять обновления - система сама заботится о том, чтобы у вас была последняя версия вашего любимого мода.",
         en: "Always up-to-date lobby version. No more manual update checks - the system automatically ensures you have the latest version."
       },
-      image: update,
+      image: {
+        ru: updateRu,
+        en: updateEn
+      },
       reverse: true
     },
     {
@@ -73,7 +95,10 @@ const Features: React.FC<FeaturesProps> = ({ language }) => {
         ru: "Создавайте собственные карты для сражений с помощью расширенного генератора шаблонов. Он позволяет настроить всё до мельчайших деталей!",
         en: "Create perfect maps for battles. Advanced generation settings, custom parameters support and intuitive interface."
       },
-      image: template,
+      image: {
+        ru: generatorRu,
+        en: generatorEn
+      },
       reverse: false
     }
   ];
@@ -93,7 +118,7 @@ const Features: React.FC<FeaturesProps> = ({ language }) => {
             <div className={styles.imageColumn}>
               <div className={styles.imageWrapper}>
                 <img 
-                  src={feature.image} 
+                  src={feature.image[language]} 
                   alt={feature.title[language]}
                   className={styles.featureImage}
                   onError={(e) => {
