@@ -55,7 +55,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
         <div className={styles.credits}>
           {content.madeBy[language]}
           <a 
-            href="@lmmortalPhoenix" 
+            href="https://t.me/lmmortalPhoenix" 
             target="_blank" 
             rel="noopener noreferrer"
             className={styles.creditLink}
