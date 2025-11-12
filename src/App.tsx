@@ -13,17 +13,22 @@ import Footer from './components/Footer/Footer';
 
 function App() {
   const [language, setLanguage] = useState<'ru' | 'en'>('ru');
-
+  const dividerStyle = {
+    width: '100%',
+    height: '50px',
+    backgroundColor: 'rgba(10, 10, 15, 1)'
+  };
   return (
     <div className="App">
       <Header language={language} onLanguageChange={setLanguage} />
       <HeroBanner language={language} />
+      <div style={dividerStyle}></div>
       <WelcomeSection language={language} />
       <Features language={language} />
       <ModsSection language={language} />
       <TeamSection language={language}/>
-      <DownloadBanner language={language}/>
       <FAQSection language={language}/>
+      <DownloadBanner language={language}/>
       <Footer language={language}/>
     </div>
   );

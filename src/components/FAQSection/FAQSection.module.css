@@ -1,8 +1,21 @@
 .faqSection {
   width: 100%;
-  background-color: var(--color-bg-dark);
   padding: var(--spacing-xl) var(--spacing-md);
   position: relative;
+  background-image: 
+  linear-gradient(
+    to bottom,
+    rgba(10, 10, 15, 1) 0%,         
+    rgba(10, 10, 15, 0.5) 30%,       
+    rgba(10, 10, 15, 0.5) 50%,         
+    rgba(10, 10, 15, 0.5) 70%,       
+    rgba(10, 10, 15, 1) 100%      
+  ),
+  url('../../assets/images/FAQ/furyHR.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
 }
 
 .threeColumnLayout {
@@ -51,7 +64,7 @@
 }
 
 .accordionItem {
-  border: 2px solid var(--color-gold);
+  /* border: 2px solid var(--color-gold); */
   border-radius: 8px;
   background: var(--color-bg-header);
   overflow: hidden;

@@ -8,7 +8,7 @@
   align-items: center;
   padding: 1% 2%;
   background-color: var(--color-bg-header);
-  border-bottom: 2px solid var(--color-gold);
+  /* border-bottom: 2px solid var(--color-gold); */
   box-shadow: var(--shadow-dark);
   z-index: 1000;
   height: 12vh;

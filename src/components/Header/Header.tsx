@@ -140,10 +140,6 @@ const Header: React.FC<HeaderProps> = ({ language, onLanguageChange }) => {
                     }
                     handleNavClick(item);
                   }}
-                  {...(item.external ? { 
-                    target: '_blank', 
-                    rel: 'noopener noreferrer' 
-                  } : {})}
                 >
                   {item.label[language]}
                 </a>
